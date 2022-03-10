@@ -27,7 +27,7 @@ class SplashActivity : AppCompatActivity() {
             override fun onFinish() {
                 shared.loadLocale(this@SplashActivity)
                 finish()
-                startActivity(Intent(this@SplashActivity, NewGameActivity::class.java))
+                startActivity(Intent(this@SplashActivity, MenuActivity::class.java))
             }
 
             override fun onTick(millisUntilFinished: Long) {

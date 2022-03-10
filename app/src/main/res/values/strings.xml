@@ -7,5 +7,12 @@
     <string name="level">Level</string>
     <string name="team_name">by Ajal studio</string>
     <string name="resume">Resume</string>
-    <string name="new_game">New game</string>
+    <string name="new_game">new game</string>
+    <string name="username">username</string>
+    <string name="submit">Submit</string>
+    <string name="dialog">Dialog</string>
+    <string name="enter_username_or_name">Enter UserName or Name</string>
+    <string name="dismiss">dismiss</string>
+    <string name="mute_unmute">Mute/Unmute</string>
+    <string name="night_mode">NIGHT MODE</string>
 </resources>

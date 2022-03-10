@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center|top"
     android:orientation="vertical"
+    android:background="@drawable/splash_bg_menu"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -13,6 +14,7 @@
         android:background="@drawable/actionbar_background">
 
         <ImageButton
+            android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/ic_keyboard_backspace_black_24dp" />
@@ -20,11 +22,20 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="0.4"
             android:gravity="center"
             android:text="1"
             android:textColor="@android:color/white"
-            android:textSize="28sp" />
+            android:textSize="28sp"/>
+        <TextView
+            android:id="@+id/userNameID"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="UserName"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textSize="30sp">
+        </TextView>
 
         <ImageView
             android:layout_width="wrap_content"

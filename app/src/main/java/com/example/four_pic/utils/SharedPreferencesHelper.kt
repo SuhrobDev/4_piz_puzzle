@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.os.Build
+import android.widget.EditText
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -95,9 +96,9 @@ class SharedPreferencesHelper(var context: Context) {
     fun getLastCoinCount() = preferences.getInt("LAST_COIN_COUNT",0)
 
     // Set Username
-    fun setUserName(UserName: String){
+    fun setUserName(UserName : String){
         editor = preferences.edit()
-        editor.putString("USERNAME",UserName)
+        editor.putString("USERNAME", UserName)
         editor.apply()
     }
 
