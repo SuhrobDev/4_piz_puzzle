@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".NewGameActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_resume"
+            style="@style/classicButtonStyle"
+            android:text="@string/resume" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_new_game"
+            style="@style/classicButtonStyle"
+            android:text="@string/new_game" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_settings"
+            style="@style/classicButtonStyle"
+            android:text="@string/settings" />
+
+    </LinearLayout>
+
+    <TextView style="@style/textViewStyle" />
+
+</FrameLayout>

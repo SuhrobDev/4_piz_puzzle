@@ -1,12 +1,12 @@
 package com.example.four_pic.manager
 
-import uz.micro.star.lesson_9.models.QuestionData
+import com.example.four_pic.models.QuestionData
 import java.util.*
 
 class GameManager(
-    var questionsList: ArrayList<QuestionData>,
-    var level: Int,
-    var coins: Int,
+    var questionsList: ArrayList<QuestionData> ,
+    var level: Int ,
+    var coins: Int ,
 ) {
     private fun question() = questionsList[level]
     fun getQuestions() = question().imageList
