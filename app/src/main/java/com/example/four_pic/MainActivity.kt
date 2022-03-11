@@ -1,13 +1,13 @@
 package com.example.four_pic
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.isVisible
 import com.example.four_pic.databinding.ActivityMainBinding
 import com.example.four_pic.manager.GameManager
@@ -16,12 +16,12 @@ import com.example.four_pic.utils.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
-    lateinit var questionsList: ArrayList<QuestionData>
-    lateinit var imagesList: ArrayList<ImageView>
+    private lateinit var questionsList: ArrayList<QuestionData>
+    private lateinit var imagesList: ArrayList<ImageView>
     lateinit var wordList: ArrayList<Button>
     lateinit var lettersList: ArrayList<Button>
     lateinit var gameManager: GameManager
-
+    lateinit var userName : TextView
     private val shared by lazy {
         SharedPreferencesHelper(this)
     }
@@ -29,27 +29,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-//        resumeGame.setOnClickListener {
-//            val userName = shared.getUserName()
-//            if (userName != null) {
-//                if (userName.isEmpty()){
-//                    Toast.makeText(this, "CREATE NEW GAME", Toast.LENGTH_SHORT).show()
-//                }else{
-//                    val intent = Intent(this, ResumeGame::class.java)
-//                    startActivity(intent)
-//                }
-//            }else{
-//                Toast.makeText(this, "USERNAME IS NULL", Toast.LENGTH_SHORT).show()
-//            }
-//        }
         binding.btnBack.setOnClickListener {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
             finish()
         }
         val userNAME = shared.getUserName()
-        binding.userNameID.text = userNAME.toString()
+        userName = findViewById(R.id.userNameID)
+        userName.text=userNAME.toString()
         getAllQuestions()
         gameManager = GameManager(questionsList, 0, 0)
         loadViews()
@@ -67,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                     R.drawable.img4,
                 ),
                 "Bridge",
-                "bhjrkidfge"
+                "blrfghedoi"
             )
         )
         questionsList.add(
@@ -79,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                     R.drawable.img8,
                 ),
                 "Card",
-                "acjlrsudm"
+                "ctajldsrom"
             )
         )
         questionsList.add(
@@ -91,20 +78,20 @@ class MainActivity : AppCompatActivity() {
                     R.drawable.img12,
                 ),
                 "Water",
-                "rfwtoanyek"
+                "rwqtoanyek"
             )
         )
         questionsList.add(
             QuestionData(
-            arrayListOf(
-                R.drawable.img13,
-                R.drawable.img14,
-                R.drawable.img15,
-                R.drawable.img16,
-            ),
+                arrayListOf(
+                    R.drawable.img13,
+                    R.drawable.img14,
+                    R.drawable.img15,
+                    R.drawable.img16,
+                ),
                 "Old",
-                "ocjlrsudm"
-        )
+                "lwqtoanydk"
+            )
         )
     }
 
@@ -177,8 +164,5 @@ class MainActivity : AppCompatActivity() {
             lettersList[i].visible()
             lettersList[i].text = "${gameManager.getLetters()[i]}"
         }
-    }
-    private fun saveData(){
-
     }
 }
