@@ -38,26 +38,23 @@ class CreateUserName : AppCompatActivity() {
     private fun checkUserName() {
         val userName : EditText = findViewById(R.id.userName)
         val name:String = userName.text.toString()
-        if (name.trim().length in 3..8) {
-            val intent = Intent(applicationContext , MainActivity::class.java)
-            intent.putExtra("myname" , name)
-            shared.setUserName(name)
+        if (name.trim().isNotEmpty()){
+            if (name.trim().length in 3..7) {
+                val intent = Intent(this , MainActivity::class.java)
+                intent.putExtra("Name" , name)
+                shared.setUserName(name)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this ,"Username is not valid!", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this@CreateUserName,CreateUserName::class.java)
+                startActivity(intent)
+            }
+        }else {
+            Toast.makeText(this , "create a username!" , Toast.LENGTH_SHORT).show()
+            val intent = Intent(this@CreateUserName,CreateUserName::class.java)
             startActivity(intent)
-        } else {
-            // Toast.makeText(this , "please enter valid name" , Toast.LENGTH_SHORT).show()
-            Toast.makeText(
-                applicationContext ,
-                "please enter valid name" ,
-                Toast.LENGTH_SHORT
-
-            ).show()
-            val intent = Intent(applicationContext , CreateUserName::class.java)
-            Intent(intent)
         }
-        shared.setUserName(name)
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
     }
+}
 
     //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
-}

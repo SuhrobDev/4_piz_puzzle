@@ -10,14 +10,14 @@ class GameManager(
 ) {
     private fun question() = questionsList[level]
     fun getQuestions() = question().imageList
-    fun getWord() = question().word
+    private fun getWord() = question().word
     fun getWordSize() = question().word.length
     fun getLetters() = question().letters
     fun getLettersSize() = question().letters.length
     fun questionsSize() = questionsList.size
     fun check(word: String):Boolean{
         //bu joyda logika bo`ladi
-        //
+
         return getWord().trim().lowercase() == word.lowercase()
     }
 

@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.view.isVisible
 import com.example.four_pic.databinding.ActivityMainBinding
+//import com.example.four_pic.databinding.ActivityMainBinding
 import com.example.four_pic.manager.GameManager
 import com.example.four_pic.models.QuestionData
 import com.example.four_pic.utils.*
@@ -20,6 +22,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var lettersList: ArrayList<Button>
     lateinit var gameManager: GameManager
     lateinit var userName : TextView
+    var checkWin:Boolean=true
+    var wordCheck:String=""
     private val shared by lazy {
         SharedPreferencesHelper(this)
     }
@@ -39,6 +43,35 @@ class MainActivity : AppCompatActivity() {
         gameManager = GameManager(questionsList, 0, 0)
         loadViews()
         loadDataToView()
+//        binding.submit.setOnClickListener {
+//            if(check_()){
+//                Toast.makeText(this , "win" , Toast.LENGTH_SHORT).show()
+//                gameManager.level++
+//                getAllQuestions()
+//                loadDataToView()
+//                wordCheck = ""
+//            }
+//        }
+        binding.submit.setOnClickListener {
+            if (check_()){
+                Toast.makeText(this, "Win", Toast.LENGTH_LONG).show()
+                Thread.sleep(500)
+                gameManager.coins+=15
+                binding.coins.text = gameManager.coins.toString()
+
+                gameManager.level++
+
+                var level_ = gameManager.level
+
+                binding.level.text = (++level_).toString()
+                getAllQuestions()
+                loadDataToView()
+                wordCheck=""
+            }
+            else{
+                Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun getAllQuestions() {
@@ -63,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                     R.drawable.img7,
                     R.drawable.img8,
                 ),
-                "Card",
+                "card",
                 "ctajldsrom"
             )
         )
@@ -75,7 +108,7 @@ class MainActivity : AppCompatActivity() {
                     R.drawable.img11,
                     R.drawable.img12,
                 ),
-                "Water",
+                "water",
                 "rwqtoanyek"
             )
         )
@@ -87,7 +120,7 @@ class MainActivity : AppCompatActivity() {
                     R.drawable.img15,
                     R.drawable.img16,
                 ),
-                "Old",
+                "old",
                 "lwqtoanydk"
             )
         )
@@ -123,10 +156,25 @@ class MainActivity : AppCompatActivity() {
             for (i in 0 until wordList.size) {
                 if (wordList[i].text.isEmpty()) {
                     wordList[i].text = word
+                    //check()
                     break
                 }
             }
         }
+    }
+    private fun checkWord() : Boolean{
+        for (i in 0 until gameManager.getWordSize()){
+            wordCheck+=wordList[i].text
+            print(wordCheck)
+        }
+        return gameManager.check(wordCheck)
+    }
+    private fun check_(): Boolean {
+        for (i in 0 until gameManager.getWordSize()){
+            wordCheck+=wordList[i].text.trim()
+            print(wordCheck)
+        }
+        return gameManager.check(wordCheck)
     }
 
     private fun wordBtnClick(it: Button) {
@@ -138,10 +186,18 @@ class MainActivity : AppCompatActivity() {
                     && lettersList[i].text.toString().lowercase() == word.lowercase()
                 ) {
                     lettersList[i].visible()
+                    wordCheck+=word
+                    print(wordCheck)
                     break
                 }
             }
+            for (i in 0 until wordList.size){
+                if(wordList[i].text.isNotEmpty()){
+                    wordCheck+=wordList[i].toString()
+                }else wordCheck=""
+            }
         }
+        wordCheck = ""
     }
 
     private fun loadDataToView() {

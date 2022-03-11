@@ -10,7 +10,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
-import com.example.four_pic.databinding.ActivityMenuBinding
+//import com.example.four_pic.databinding.ActivityMenuBinding
 import com.example.four_pic.utils.SharedPreferencesHelper
 
 class MenuActivity : AppCompatActivity() {
