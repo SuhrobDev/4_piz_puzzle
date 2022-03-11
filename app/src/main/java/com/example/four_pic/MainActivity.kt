@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
-import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.isVisible
 import com.example.four_pic.databinding.ActivityMainBinding
 import com.example.four_pic.manager.GameManager
@@ -61,37 +59,49 @@ class MainActivity : AppCompatActivity() {
             QuestionData(
                 arrayListOf(
                     R.drawable.img1,
-                    R.drawable.img1,
-                    R.drawable.img1,
-                    R.drawable.img1,
+                    R.drawable.img2,
+                    R.drawable.img3,
+                    R.drawable.img4,
                 ),
-                "Helo",
-                "asdfgheloq"
+                "Bridge",
+                "bhjrkidfge"
             )
         )
         questionsList.add(
             QuestionData(
                 arrayListOf(
-                    R.drawable.img1,
-                    R.drawable.img1,
-                    R.drawable.img1,
-                    R.drawable.img1,
+                    R.drawable.img5,
+                    R.drawable.img6,
+                    R.drawable.img7,
+                    R.drawable.img8,
                 ),
-                "Salom",
-                "Stajlnsuom"
+                "Card",
+                "acjlrsudm"
             )
         )
         questionsList.add(
             QuestionData(
                 arrayListOf(
-                    R.drawable.img1,
-                    R.drawable.img1,
-                    R.drawable.img1,
-                    R.drawable.img1,
+                    R.drawable.img9,
+                    R.drawable.img10,
+                    R.drawable.img11,
+                    R.drawable.img12,
                 ),
-                "tank",
-                "tfqtoanykk"
+                "Water",
+                "rfwtoanyek"
             )
+        )
+        questionsList.add(
+            QuestionData(
+            arrayListOf(
+                R.drawable.img13,
+                R.drawable.img14,
+                R.drawable.img15,
+                R.drawable.img16,
+            ),
+                "Old",
+                "ocjlrsudm"
+        )
         )
     }
 
