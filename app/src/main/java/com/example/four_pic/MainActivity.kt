@@ -26,12 +26,28 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+
+
+//        resumeGame.setOnClickListener {
+//            val userName = shared.getUserName()
+//            if (userName != null) {
+//                if (userName.isEmpty()){
+//                    Toast.makeText(this, "CREATE NEW GAME", Toast.LENGTH_SHORT).show()
+//                }else{
+//                    val intent = Intent(this, ResumeGame::class.java)
+//                    startActivity(intent)
+//                }
+//            }else{
+//                Toast.makeText(this, "USERNAME IS NULL", Toast.LENGTH_SHORT).show()
+//            }
+//        }
+
         binding.btnBack.setOnClickListener {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
             finish()
         }
+        binding.userNameID.text = intent.getStringExtra("myname")
         val userNAME = shared.getUserName()
         userName = findViewById(R.id.userNameID)
         userName.text=userNAME.toString()
