@@ -1,10 +1,13 @@
 package com.example.four_pic
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.view.isVisible
 import com.example.four_pic.databinding.ActivityMainBinding
 import com.example.four_pic.manager.GameManager
@@ -18,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var wordList: ArrayList<Button>
     lateinit var lettersList: ArrayList<Button>
     lateinit var gameManager: GameManager
-    lateinit var btnBack:ImageView
+
     private val shared by lazy {
         SharedPreferencesHelper(this)
     }
@@ -145,6 +148,7 @@ class MainActivity : AppCompatActivity() {
         if (it.text.isNotEmpty()) {
             val word = it.text.toString()
             it.text = ""
+            it.invisible()
             for (i in 0 until lettersList.size) {
                 if (lettersList[i].isInvisible()
                     && lettersList[i].text.toString().lowercase() == word.lowercase()
@@ -174,5 +178,8 @@ class MainActivity : AppCompatActivity() {
             lettersList[i].visible()
             lettersList[i].text = "${gameManager.getLetters()[i]}"
         }
+    }
+    private fun saveData(){
+
     }
 }
