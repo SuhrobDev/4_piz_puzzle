@@ -16,13 +16,12 @@ import com.example.four_pic.utils.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
-    lateinit var questionsList: ArrayList<QuestionData>
-    lateinit var imagesList: ArrayList<ImageView>
+    private lateinit var questionsList: ArrayList<QuestionData>
+    private lateinit var imagesList: ArrayList<ImageView>
     lateinit var wordList: ArrayList<Button>
     lateinit var lettersList: ArrayList<Button>
     lateinit var gameManager: GameManager
     lateinit var userName : TextView
-    lateinit var btnBack:ImageView
     private val shared by lazy {
         SharedPreferencesHelper(this)
     }
@@ -30,27 +29,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val resumeGame: AppCompatButton = findViewById(R.id.btn_resume)
-//        resumeGame.setOnClickListener {
-//            val userName = shared.getUserName()
-//            if (userName != null) {
-//                if (userName.isEmpty()){
-//                    Toast.makeText(this, "CREATE NEW GAME", Toast.LENGTH_SHORT).show()
-//                }else{
-//                    val intent = Intent(this, ResumeGame::class.java)
-//                    startActivity(intent)
-//                }
-//            }else{
-//                Toast.makeText(this, "USERNAME IS NULL", Toast.LENGTH_SHORT).show()
-//            }
-//        }
         binding.btnBack.setOnClickListener {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
             finish()
         }
         val userNAME = shared.getUserName()
-        userName.text = userNAME.toString()
+        userName = findViewById(R.id.userNameID)
+        userName.text=userNAME.toString()
         getAllQuestions()
         gameManager = GameManager(questionsList, 0, 0)
         loadViews()
@@ -67,8 +53,8 @@ class MainActivity : AppCompatActivity() {
                     R.drawable.img1,
                     R.drawable.img1,
                 ),
-                "Helo",
-                "asdfgheloq"
+                "Hello",
+                "aldfgheloq"
             )
         )
         questionsList.add(
@@ -123,7 +109,7 @@ class MainActivity : AppCompatActivity() {
     private fun letterBtnClick(button: Button) {
         if (button.isVisible && wordList[gameManager.getWordSize()-1].text.isEmpty()) {
             button.invisible()
-            var word = button.text.toString()
+            val word = button.text.toString()
             for (i in 0 until wordList.size) {
                 if (wordList[i].text.isEmpty()) {
                     wordList[i].text = word

@@ -80,8 +80,6 @@
                 android:text="Submit"
                 android:textColor="#000000" />
         </LinearLayout>
-
     </LinearLayout>
-
-
+    <TextView style="@style/textViewStyle" />
 </androidx.cardview.widget.CardView>

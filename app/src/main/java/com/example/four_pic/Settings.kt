@@ -1,7 +1,9 @@
 package com.example.four_pic
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -62,4 +64,5 @@ class Settings : AppCompatActivity() {
 //        }
         //mute unmute
     }
+    
 }

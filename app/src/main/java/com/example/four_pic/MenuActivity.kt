@@ -55,6 +55,20 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        val resumeGame: AppCompatButton = findViewById(R.id.btn_resume)
+        resumeGame.setOnClickListener {
+            val userName = shared.getUserName()
+            if (userName != null) {
+                if (userName.isEmpty()){
+                    Toast.makeText(this, "CREATE NEW GAME", Toast.LENGTH_SHORT).show()
+                }else{
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }
+            }else{
+                Toast.makeText(this, "USERNAME IS NULL", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 //    private fun checkUserName() {
 //        val name:String = userName.text.toString()

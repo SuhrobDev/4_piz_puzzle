@@ -15,4 +15,7 @@
     <string name="dismiss">dismiss</string>
     <string name="mute_unmute">Mute/Unmute</string>
     <string name="night_mode">NIGHT MODE</string>
+    <string name="a">A</string>
+    <string name="_0">0</string>
+    <string name="_1">1</string>
 </resources>
