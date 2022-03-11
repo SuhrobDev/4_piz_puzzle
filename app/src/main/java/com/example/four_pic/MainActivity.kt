@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var gameManager: GameManager
     lateinit var userName : TextView
     var checkWin:Boolean=true
-    var wordCheck:String=""
     private val shared by lazy {
         SharedPreferencesHelper(this)
     }
@@ -46,15 +45,7 @@ class MainActivity : AppCompatActivity() {
         gameManager = GameManager(questionsList, 0, 0)
         loadViews()
         loadDataToView()
-//        binding.submit.setOnClickListener {
-//            if(check_()){
-//                Toast.makeText(this , "win" , Toast.LENGTH_SHORT).show()
-//                gameManager.level++
-//                getAllQuestions()
-//                loadDataToView()
-//                wordCheck = ""
-//            }
-//        }
+        ////////////////////////////////////////////////////////////////////
         binding.submit.setOnClickListener {
             if (check_()){
                 Toast.makeText(this, "Win", Toast.LENGTH_LONG).show()
@@ -159,7 +150,6 @@ class MainActivity : AppCompatActivity() {
             for (i in 0 until wordList.size) {
                 if (wordList[i].text.isEmpty()) {
                     wordList[i].text = word
-                    //check()
                     break
                 }
             }
@@ -172,13 +162,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    private fun checkWord() : Boolean{
-        for (i in 0 until gameManager.getWordSize()){
-            wordCheck+=wordList[i].text
-            print(wordCheck)
-        }
-        return gameManager.check(wordCheck)
-    }
+
     private fun check_(): Boolean {
         for (i in 0 until gameManager.getWordSize()){
             wordCheck+=wordList[i].text.trim()
@@ -229,4 +213,5 @@ class MainActivity : AppCompatActivity() {
             lettersList[i].text = "${gameManager.getLetters()[i]}"
         }
     }
+
 }

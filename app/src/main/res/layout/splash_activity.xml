@@ -11,5 +11,35 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:src="@drawable/splash_logo1"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_gravity="bottom">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/progressText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:paddingTop="20dp"
+                android:text="0%" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="300dp"
+                android:layout_height="10dp"
+                style="?android:progressBarStyleHorizontal"
+                android:indeterminateOnly="false"
+                android:layout_gravity="center"
+                android:max="100"
+                android:progress="0" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </FrameLayout>
     <TextView style="@style/textViewStyle" />
 </FrameLayout>

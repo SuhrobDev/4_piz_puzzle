@@ -4,36 +4,82 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.four_pic.utils.SharedPreferencesHelper
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
-    val shared by lazy {
-        SharedPreferencesHelper(this)
-    }
+
+//    val shared by lazy {
+//        SharedPreferencesHelper(this)
+//    }
+
+    lateinit var progressText: TextView
+    var maxProgress = 100
+    var progressStatus = 0
+    lateinit var progressBar: ProgressBar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val actionBar : ActionBar? = supportActionBar
         actionBar?.hide()
         setContentView(R.layout.splash_activity)
-        startTimer()
+
+        //startTimer()
+
+        progressText = findViewById(R.id.progressText)
+        progressBar = findViewById(R.id.progressBar)
+        progress()
+
     }
 
-    private fun startTimer() {
-
-        object : CountDownTimer(3000, 1000) {
-            override fun onFinish() {
-                shared.loadLocale(this@SplashActivity)
-                finish()
-                startActivity(Intent(this@SplashActivity, MenuActivity::class.java))
+    private fun progress() {
+        var thread = Thread{
+            while (!allCheck()){
+                count()
+                runOnUiThread {
+                    progressBar.max = maxProgress
+                    progressBar.progress = progressStatus
+                    progressText.text = "${progressStatus}"
+                }
+                if (allCheck()){
+                    finish()
+                    val intent = Intent(this,MenuActivity::class.java)
+                    startActivity(intent)
+                }
             }
-
-            override fun onTick(millisUntilFinished: Long) {
-
-            }
-
-        }.start()
+        }
+        thread.start()
     }
+
+    private fun allCheck(): Boolean {
+        if (progressStatus == maxProgress){
+            return true
+        }
+        return false
+    }
+
+    private fun count() {
+        progressStatus+=10
+        Thread.sleep(1200)
+    }
+
+//    private fun startTimer() {
+//
+//        object : CountDownTimer(3000, 1000) {
+//            override fun onFinish() {
+//                shared.loadLocale(this@SplashActivity)
+//                finish()
+//                startActivity(Intent(this@SplashActivity, MenuActivity::class.java))
+//            }
+//
+//            override fun onTick(millisUntilFinished: Long) {
+//
+//            }
+//
+//        }.start()
+//    }
 }

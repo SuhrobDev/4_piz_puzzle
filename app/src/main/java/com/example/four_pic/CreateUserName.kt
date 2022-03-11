@@ -40,9 +40,8 @@ class CreateUserName : AppCompatActivity() {
         val name:String = userName.text.toString()
         if (name.trim().isNotEmpty()){
             if (name.trim().length in 3..7) {
-                val intent = Intent(this , MainActivity::class.java)
-                intent.putExtra("Name" , name)
                 shared.setUserName(name)
+                val intent = Intent(this , MainActivity::class.java)
                 startActivity(intent)
             } else {
                 Toast.makeText(this ,"Username is not valid!", Toast.LENGTH_SHORT).show()
