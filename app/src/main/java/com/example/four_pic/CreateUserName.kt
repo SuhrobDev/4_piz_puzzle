@@ -54,9 +54,9 @@ class CreateUserName : AppCompatActivity() {
             val intent = Intent(applicationContext , CreateUserName::class.java)
             Intent(intent)
         }
-//        shared.setUserName(name)
-//        val intent = Intent(this, MainActivity::class.java)
-//        startActivity(intent)
+        shared.setUserName(name)
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 
     //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
