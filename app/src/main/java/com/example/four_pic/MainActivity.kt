@@ -148,7 +148,6 @@ class MainActivity : AppCompatActivity() {
         if (it.text.isNotEmpty()) {
             val word = it.text.toString()
             it.text = ""
-            it.invisible()
             for (i in 0 until lettersList.size) {
                 if (lettersList[i].isInvisible()
                     && lettersList[i].text.toString().lowercase() == word.lowercase()
