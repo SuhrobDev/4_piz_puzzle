@@ -54,17 +54,19 @@ class CreateUserName : AppCompatActivity() {
 //            val intent = Intent(applicationContext , CreateUserName::class.java)
 //            startActivity(intent)
 //        }
-        if (name.trim().length in 3..7) {
-            val intent = Intent(this , MainActivity::class.java)
-            intent.putExtra("Name" , name)
-            shared.setUserName(name)
-            startActivity(intent)
-            } else {
-                Toast.makeText(this ,"Username is not valid!", Toast.LENGTH_SHORT).show()
-                  val intent = Intent(this@CreateUserName,CreateUserName::class.java)
-                 startActivity(intent)
-            }
-
-    //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
+       if (name.trim().isNotEmpty()){
+           if (name.trim().length in 3..7) {
+               val intent = Intent(this , MainActivity::class.java)
+               intent.putExtra("Name" , name)
+               shared.setUserName(name)
+               startActivity(intent)
+           } else {
+               Toast.makeText(this ,"Username is not valid!", Toast.LENGTH_SHORT).show()
+               val intent = Intent(this@CreateUserName,CreateUserName::class.java)
+               startActivity(intent)
+           }
+       }else Toast.makeText(this , "create a username!" , Toast.LENGTH_SHORT).show()
+        val intent = Intent(this@CreateUserName,CreateUserName::class.java)
+        startActivity(intent)
     }
 }
