@@ -37,7 +37,7 @@ class CreateUserName : AppCompatActivity() {
     }
     private fun checkUserName() {
         val userName : EditText = findViewById(R.id.userName)
-        val name:String = userName.text.toString()
+        val name:String = userName.text.toString().trim()
 //        if (name.trim().length in 3..8) {
 //            val intent = Intent(applicationContext , MainActivity::class.java)
 //            intent.putExtra("myname" , name)
@@ -54,7 +54,7 @@ class CreateUserName : AppCompatActivity() {
 //            val intent = Intent(applicationContext , CreateUserName::class.java)
 //            startActivity(intent)
 //        }
-        if (name.length in 3..7) {
+        if (name.trim().length in 3..7) {
             val intent = Intent(this , MainActivity::class.java)
             intent.putExtra("Name" , name)
             shared.setUserName(name)
