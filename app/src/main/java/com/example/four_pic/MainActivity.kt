@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.isVisible
 import com.example.four_pic.databinding.ActivityMainBinding
@@ -30,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val resumeGame: AppCompatButton = findViewById(R.id.btn_resume)
+
 //        resumeGame.setOnClickListener {
 //            val userName = shared.getUserName()
 //            if (userName != null) {
@@ -49,6 +48,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        binding.userNameID.text = intent.getStringExtra("myname")
         val userNAME = shared.getUserName()
         userName.text = userNAME.toString()
         getAllQuestions()
@@ -123,7 +123,7 @@ class MainActivity : AppCompatActivity() {
     private fun letterBtnClick(button: Button) {
         if (button.isVisible && wordList[gameManager.getWordSize()-1].text.isEmpty()) {
             button.invisible()
-            var word = button.text.toString()
+            val word = button.text.toString()
             for (i in 0 until wordList.size) {
                 if (wordList[i].text.isEmpty()) {
                     wordList[i].text = word

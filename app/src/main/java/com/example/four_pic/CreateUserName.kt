@@ -39,7 +39,7 @@ class CreateUserName : AppCompatActivity() {
         val userName : EditText = findViewById(R.id.userName)
         val name:String = userName.text.toString()
         if (name.trim().length in 3..8) {
-            val intent = Intent(applicationContext , MainActivity::class.java)
+            val intent = Intent(this@CreateUserName , MainActivity::class.java)
             intent.putExtra("myname" , name)
             shared.setUserName(name)
             startActivity(intent)
