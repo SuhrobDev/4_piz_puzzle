@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var wordList: ArrayList<Button>
     lateinit var lettersList: ArrayList<Button>
     lateinit var gameManager: GameManager
-    lateinit var userName : TextView
     lateinit var btnBack:ImageView
     private val shared by lazy {
         SharedPreferencesHelper(this)
@@ -48,9 +47,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-        binding.userNameID.text = intent.getStringExtra("myname")
         val userNAME = shared.getUserName()
-        userName.text = userNAME.toString()
+        binding.userNameID.text = userNAME.toString()
         getAllQuestions()
         gameManager = GameManager(questionsList, 0, 0)
         loadViews()
