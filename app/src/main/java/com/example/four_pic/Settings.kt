@@ -49,6 +49,7 @@ class Settings : AppCompatActivity() {
             }else{
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
+            finish()
         }
         // Night Mode or Light Mode
         // mute unmute

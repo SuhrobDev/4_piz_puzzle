@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -21,11 +20,12 @@
             android:src="@drawable/ic_keyboard_backspace_black_24dp" />
 
         <TextView
+            android:id="@+id/level"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.4"
             android:gravity="center"
-            android:text="@string/_1"
+            android:text="1"
             android:textColor="@android:color/white"
             android:textSize="28sp"/>
         <TextView
@@ -44,6 +44,7 @@
             android:src="@drawable/ic_coins" />
 
         <TextView
+            android:id="@+id/coins"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -71,7 +72,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/img2" />
+            />
 
         <ImageView
             android:id="@+id/img2"
@@ -81,8 +82,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:layout_toEndOf="@id/img1"
-            android:src="@drawable/img2" />
+            android:layout_toRightOf="@id/img1"
+            />
 
         <ImageView
             android:id="@+id/img3"
@@ -93,7 +94,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/img2" />
+            />
 
         <ImageView
             android:id="@+id/img4"
@@ -104,8 +105,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:layout_toEndOf="@id/img3"
-            android:src="@drawable/img2" />
+            android:layout_toRightOf="@id/img3"
+            />
     </RelativeLayout>
 
     <LinearLayout
@@ -117,7 +118,7 @@
         <Button
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:text="@string/a"
+            android:text="A"
             android:textSize="18sp" />
 
         <Button
@@ -163,25 +164,29 @@
             android:id="@+id/v2"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_toEndOf="@id/v1" />
+            android:layout_toEndOf="@id/v1"
+            android:layout_toRightOf="@id/v1" />
 
         <Button
             android:id="@+id/v3"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_toEndOf="@id/v2" />
+            android:layout_toEndOf="@id/v2"
+            android:layout_toRightOf="@id/v2" />
 
         <Button
             android:id="@+id/v4"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_toEndOf="@id/v3" />
+            android:layout_toEndOf="@id/v3"
+            android:layout_toRightOf="@id/v3" />
 
         <Button
             android:id="@+id/v5"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_toEndOf="@id/v4" />
+            android:layout_toEndOf="@id/v4"
+            android:layout_toRightOf="@id/v4" />
 
         <Button
             android:id="@+id/v6"
@@ -194,14 +199,16 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_below="@id/v1"
-            android:layout_toEndOf="@id/v1" />
+            android:layout_toEndOf="@id/v1"
+            android:layout_toRightOf="@id/v1" />
 
         <Button
             android:id="@+id/v8"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_below="@id/v2"
-            android:layout_toEndOf="@id/v2" />
+            android:layout_toEndOf="@id/v2"
+            android:layout_toRightOf="@id/v2" />
 
         <Button
             android:id="@+id/v9"
@@ -209,6 +216,7 @@
             android:layout_height="40dp"
             android:layout_below="@id/v3"
             android:layout_toEndOf="@id/v3"
+            android:layout_toRightOf="@id/v3"
             android:visibility="invisible" />
 
         <Button
@@ -216,7 +224,13 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_below="@id/v4"
-            android:layout_toEndOf="@id/v4" />
+            android:layout_toEndOf="@id/v4"
+            android:layout_toRightOf="@id/v4" />
     </RelativeLayout>
-
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="24sp"
+    android:text="Submit"
+    android:id="@+id/submit"/>
 </LinearLayout>
