@@ -25,6 +25,9 @@ class MainActivity : AppCompatActivity() {
     private val shared by lazy {
         SharedPreferencesHelper(this)
     }
+    var checkWord:Boolean = true
+    var wordCheck:String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -114,6 +117,13 @@ class MainActivity : AppCompatActivity() {
                 if (wordList[i].text.isEmpty()) {
                     wordList[i].text = word
                     break
+                }
+            }
+            for (i in 0 until wordList.size){
+                if (wordList[i].text.isNotEmpty()){
+                    wordCheck+= wordList[i].toString()
+                }else{
+                    wordCheck = ""
                 }
             }
         }
