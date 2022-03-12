@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:background="@drawable/splash_bg_menu"
-    tools:context=".NewGameActivity">
+    tools:context=".MenuActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -28,6 +28,10 @@
             android:id="@+id/btn_settings"
             style="@style/classicButtonStyle"
             android:text="@string/settings" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_Exit"
+            style="@style/classicButtonStyle"
+            android:text="@string/exit" />
 
     </LinearLayout>
 

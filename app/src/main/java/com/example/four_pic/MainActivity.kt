@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         ////////////////////////////////////////////////////////////////////
         binding.submit.setOnClickListener {
             if (check_()){
-                Toast.makeText(this, "Win", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Correct!", Toast.LENGTH_LONG).show()
                 Thread.sleep(500)
                 gameManager.coins+=15
                 binding.coins.text = gameManager.coins.toString()
@@ -66,6 +66,14 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
             }
         }
+        binding.btnClean.setOnClickListener {
+
+            finish()
+        }
+        binding.btnHelp.setOnClickListener {
+
+            finish()
+        }
     }
 
     private fun getAllQuestions() {
@@ -78,7 +86,7 @@ class MainActivity : AppCompatActivity() {
                     R.drawable.img3,
                     R.drawable.img4,
                 ),
-                "Bridge",
+                "bridge",
                 "blrfghedoi"
             )
         )
@@ -163,10 +171,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun check_(): Boolean {
+    fun check_(): Boolean {
         for (i in 0 until gameManager.getWordSize()){
-            wordCheck+=wordList[i].text.trim()
-            print(wordCheck)
+            wordCheck+=wordList[i].text
         }
         return gameManager.check(wordCheck)
     }

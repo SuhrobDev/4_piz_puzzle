@@ -12,6 +12,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
 //import com.example.four_pic.databinding.ActivityMenuBinding
 import com.example.four_pic.utils.SharedPreferencesHelper
+import kotlin.system.exitProcess
 
 class MenuActivity : AppCompatActivity() {
     val shared by lazy {
@@ -19,11 +20,17 @@ class MenuActivity : AppCompatActivity() {
     }
     lateinit var btnNewGame:AppCompatButton
     lateinit var btnSettings:AppCompatButton
+    lateinit var btnExit:AppCompatButton
     override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
         btnNewGame=findViewById(R.id.btn_new_game)
         btnSettings=findViewById(R.id.btn_settings)
+        btnExit=findViewById(R.id.btn_Exit)
+        btnExit.setOnClickListener {
+            finish()
+            exitProcess(0)
+        }
         btnNewGame.setOnClickListener {
             val intent = Intent(this, CreateUserName::class.java)
             startActivity(intent)

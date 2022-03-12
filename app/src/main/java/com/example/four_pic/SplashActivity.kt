@@ -37,13 +37,13 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun progress() {
-        var thread = Thread{
+        val thread = Thread{
             while (!allCheck()){
                 count()
                 runOnUiThread {
                     progressBar.max = maxProgress
                     progressBar.progress = progressStatus
-                    progressText.text = "${progressStatus}"
+                    progressText.text = "$progressStatus"
                 }
                 if (allCheck()){
                     finish()
