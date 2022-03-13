@@ -71,8 +71,13 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
         binding.btnHelp.setOnClickListener {
-
-            finish()
+               wordList[wordList.size-2].text = gameManager.getWord()[wordList.size-2].toString()
+            for (i in 0 until lettersList.size){
+                if (lettersList[i].text.toString()==wordList[wordList.size-2].text){
+                    lettersList[i].invisible()
+                    break
+                }
+            }
         }
     }
 

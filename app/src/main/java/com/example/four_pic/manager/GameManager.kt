@@ -10,7 +10,7 @@ class GameManager(
 ) {
     private fun question() = questionsList[level]
     fun getQuestions() = question().imageList
-    private fun getWord() = question().word
+    fun getWord() = question().word
     fun getWordSize() = question().word.length
     fun getLetters() = question().letters
     fun getLettersSize() = question().letters.length
