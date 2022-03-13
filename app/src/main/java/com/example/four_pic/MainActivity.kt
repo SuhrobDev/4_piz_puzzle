@@ -67,18 +67,36 @@ class MainActivity : AppCompatActivity() {
             }
         }
         binding.btnClean.setOnClickListener {
+            for (i in 0 until wordList.size){
+                wordList[i].text=""
 
-            finish()
+            }
+            for (i in 0 until lettersList.size) {
+                    lettersList[i].visible()
+            }
         }
         binding.btnHelp.setOnClickListener {
-               wordList[wordList.size-2].text = gameManager.getWord()[wordList.size-2].toString()
-            for (i in 0 until lettersList.size){
-                if (lettersList[i].text.toString()==wordList[wordList.size-2].text){
+            var n=0
+            for (i in 0 until wordList.size) {
+                n=i
+                if (wordList[i].text.isEmpty()) {
+                    wordList[n].text = gameManager.getWord()[n].toString()
+                    break
+                }
+            }
+            for (i in 0 until lettersList.size) {
+                if (lettersList[i].text.toString()==wordList[n].text.toString()) {
                     lettersList[i].invisible()
                     break
                 }
             }
-        }
+//               wordList[wordList.size-2].text = gameManager.getWord()[wordList.size-2].toString()
+//            for (i in 0 until lettersList.size){
+//                if (lettersList[i].text.toString()==wordList[wordList.size-2].text){
+//                    lettersList[i].invisible()
+//                    break
+//                }
+            }
     }
 
     private fun getAllQuestions() {
