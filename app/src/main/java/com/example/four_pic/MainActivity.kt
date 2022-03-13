@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         SharedPreferencesHelper(this)
     }
     var checkWord:Boolean = true
-    var wordCheck:String = ""
+    var wordCheck = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -161,19 +161,23 @@ class MainActivity : AppCompatActivity() {
                     break
                 }
             }
-            for (i in 0 until wordList.size){
-                if (wordList[i].text.isNotEmpty()){
-                    wordCheck+= wordList[i].toString()
-                }else{
-                    wordCheck = ""
-                }
-            }
+            //
+            //Mana shuni tagidagi forda worchekga bridge qo'shilgan ekan
+
+
+//            for (i in 0 until wordList.size){
+//                if (wordList[i].text.isNotEmpty()){
+//                    wordCheck+= wordList[i].toString()
+//                }else{
+//                    wordCheck = ""
+//                }
+//            }
         }
     }
 
     fun check_(): Boolean {
-        for (i in 0 until gameManager.getWordSize()){
-            wordCheck+=wordList[i].text
+        for (i in 0 until (gameManager.getWordSize())){
+            wordCheck+=wordList[i].text.toString()
         }
         return gameManager.check(wordCheck)
     }
