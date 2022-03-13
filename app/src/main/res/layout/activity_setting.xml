@@ -65,7 +65,7 @@
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                android:text="@string/mute_unmute"/>
+                android:text="@string/unmute_mute"/>
             <androidx.appcompat.widget.SwitchCompat
 
                 android:layout_width="wrap_content"

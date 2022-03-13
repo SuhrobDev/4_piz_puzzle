@@ -43,7 +43,7 @@ class SplashActivity : AppCompatActivity() {
                 runOnUiThread {
                     progressBar.max = maxProgress
                     progressBar.progress = progressStatus
-                    progressText.text = "$progressStatus"
+                    progressText.text = "$progressStatus %"
                 }
                 if (allCheck()){
                     finish()

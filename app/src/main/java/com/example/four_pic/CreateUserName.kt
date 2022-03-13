@@ -1,6 +1,7 @@
 package com.example.four_pic
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageView
@@ -15,6 +16,8 @@ class CreateUserName : AppCompatActivity() {
     private val shared by lazy {
         SharedPreferencesHelper(this)
     }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dialog)

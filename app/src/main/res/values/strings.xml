@@ -13,7 +13,7 @@
     <string name="dialog">Dialog</string>
     <string name="enter_username_or_name">Enter UserName or Name</string>
     <string name="dismiss">dismiss</string>
-    <string name="mute_unmute">Mute/Unmute</string>
+    <string name="mute_unmute">MUSIC</string>
     <string name="night_mode">NIGHT MODE</string>
     <string name="_0">0</string>
     <string name="help">help</string>
@@ -21,4 +21,5 @@
     <string name="a">A</string>
     <string name="_1">1</string>
     <string name="exit">exit</string>
+    <string name="unmute_mute">UNMUTE/MUTE</string>
 </resources>

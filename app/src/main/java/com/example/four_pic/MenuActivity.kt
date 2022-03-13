@@ -1,21 +1,14 @@
 package com.example.four_pic
-
-import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import androidx.appcompat.widget.AppCompatEditText
-//import com.example.four_pic.databinding.ActivityMenuBinding
 import com.example.four_pic.utils.SharedPreferencesHelper
 import kotlin.system.exitProcess
 
 class MenuActivity : AppCompatActivity() {
-    val shared by lazy {
+    private val shared by lazy {
         SharedPreferencesHelper(this)
     }
     lateinit var btnNewGame:AppCompatButton
@@ -31,6 +24,7 @@ class MenuActivity : AppCompatActivity() {
             finish()
             exitProcess(0)
         }
+
         btnNewGame.setOnClickListener {
             val intent = Intent(this, CreateUserName::class.java)
             startActivity(intent)
@@ -57,6 +51,7 @@ class MenuActivity : AppCompatActivity() {
 //            dialog.show()
 
         }
+
         btnSettings.setOnClickListener {
             val intent = Intent(this, SettingActivity::class.java)
             startActivity(intent)
