@@ -1,14 +1,22 @@
 package com.example.four_pic
 
+import android.app.AlertDialog
+import android.app.Dialog
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.view.View
+import android.view.Window
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
+import com.example.four_pic.databinding.ActivityDialogBinding
 import com.example.four_pic.databinding.ActivityMainBinding
+import com.example.four_pic.databinding.DialogWinBinding
 //import com.example.four_pic.databinding.ActivityMainBinding
 import com.example.four_pic.manager.GameManager
 import com.example.four_pic.models.QuestionData
@@ -47,23 +55,27 @@ class MainActivity : AppCompatActivity() {
         loadDataToView()
         ////////////////////////////////////////////////////////////////////
         binding.submit.setOnClickListener {
-            if (check_()){
-                Toast.makeText(this, "Correct!", Toast.LENGTH_LONG).show()
-                Thread.sleep(500)
-                gameManager.coins+=15
-                binding.coins.text = gameManager.coins.toString()
+            if (gameManager.hasNextQuestion()) {
+                if (check_()) {
+                    Toast.makeText(this, "Correct!", Toast.LENGTH_LONG).show()
+                    Thread.sleep(500)
+                    gameManager.coins += 15
+                    binding.coins.text = gameManager.coins.toString()
 
-                gameManager.level++
+                    gameManager.level++
 
-                var level_ = gameManager.level
+                    var level_ = gameManager.level
 
-                binding.level.text = (++level_).toString()
-                getAllQuestions()
-                loadDataToView()
-                wordCheck=""
-            }
-            else{
-                Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
+                    binding.level.text = (++level_).toString()
+                    getAllQuestions()
+                    loadDataToView()
+                    wordCheck = ""
+                } else {
+                    Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
+                }
+            }else{
+                custom()
+                startTimer()
             }
         }
         binding.btnClean.setOnClickListener {
@@ -97,6 +109,26 @@ class MainActivity : AppCompatActivity() {
 //                    break
 //                }
             }
+    }
+
+    private fun startTimer() {
+            object : CountDownTimer(3000, 1000) {
+                override fun onFinish() {
+                    startActivity(Intent(this@MainActivity, MenuActivity::class.java))
+                }
+                override fun onTick(millisUntilFinished: Long) {
+
+                }
+
+            }.start()
+    }
+
+    private fun custom() {
+        val alertDialog:AlertDialog.Builder = AlertDialog.Builder(this@MainActivity, R.style.fullScreenAlert)
+        val view:View = layoutInflater.inflate(R.layout.dialog_win, null)
+        alertDialog.setView(view)
+        val dialog = alertDialog.create()
+        dialog.show()
     }
 
     private fun getAllQuestions() {
@@ -244,8 +276,7 @@ class MainActivity : AppCompatActivity() {
         ////////
         for (i in 0 until lettersList.size) {
             lettersList[i].visible()
-            lettersList[i].text = "${gameManager.getLetters()[i]}"
+            lettersList[i].text = gameManager.getLetters()[i].toString()
         }
     }
-
 }

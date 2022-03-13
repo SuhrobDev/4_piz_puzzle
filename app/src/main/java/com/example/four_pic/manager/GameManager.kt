@@ -11,6 +11,8 @@ class GameManager(
     private fun question() = questionsList[level]
     fun getQuestions() = question().imageList
     fun getWord() = question().word
+    fun getQuestionSize() =questionsList.size
+    var currentQuestionPosition: Int = 0
     fun getWordSize() = question().word.length
     fun getLetters() = question().letters
     fun getLettersSize() = question().letters.length
@@ -19,6 +21,13 @@ class GameManager(
         //bu joyda logika bo`ladi
 
         return getWord().trim().lowercase() == word.lowercase()
+    }
+    fun hasNextQuestion(): Boolean{
+        if (currentQuestionPosition<getQuestionSize()-1){
+            currentQuestionPosition++
+            return true
+        }
+        return false
     }
 
 }
