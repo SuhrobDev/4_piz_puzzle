@@ -61,6 +61,7 @@ var binding:ActivitySettingBinding = ActivitySettingBinding.inflate(layoutInflat
                 music.pause()
             }
         }
+        //
 
         // Night Mode or Light Mode
         // mute unmute
