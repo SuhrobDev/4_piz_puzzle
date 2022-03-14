@@ -192,6 +192,54 @@ class MainActivity : AppCompatActivity() {
                 "lwqtoanydk"
             )
         )
+        questionsList.add(
+            QuestionData(
+                arrayListOf(
+                    R.drawable.img17,
+                    R.drawable.img18,
+                    R.drawable.img19,
+                    R.drawable.img20,
+                ),
+                "yellow",
+                "lwltoanyke"
+            )
+        )
+        questionsList.add(
+            QuestionData(
+                arrayListOf(
+                    R.drawable.img21,
+                    R.drawable.img22,
+                    R.drawable.img23,
+                    R.drawable.img24,
+                ),
+                "clock",
+                "cwltoanykc"
+            )
+        )
+        questionsList.add(
+            QuestionData(
+                arrayListOf(
+                    R.drawable.img25,
+                    R.drawable.img26,
+                    R.drawable.img27,
+                    R.drawable.img28,
+                ),
+                "back",
+                "cwlboanykc"
+            )
+        )
+        questionsList.add(
+            QuestionData(
+                arrayListOf(
+                    R.drawable.img29,
+                    R.drawable.img30,
+                    R.drawable.img31,
+                    R.drawable.img32,
+                ),
+                "mouse",
+                "eulboanyms"
+            )
+        )
     }
 
     private fun loadViews() {
