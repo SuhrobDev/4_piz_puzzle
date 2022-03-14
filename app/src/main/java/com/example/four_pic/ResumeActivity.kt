@@ -1,31 +1,22 @@
 package com.example.four_pic
 
 import android.app.AlertDialog
-import android.app.Dialog
-import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
-import android.content.SharedPreferences
-import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
-import android.view.Window
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
-import com.example.four_pic.databinding.ActivityDialogBinding
 import com.example.four_pic.databinding.ActivityMainBinding
-import com.example.four_pic.databinding.DialogWinBinding
-//import com.example.four_pic.databinding.ActivityMainBinding
 import com.example.four_pic.manager.GameManager
 import com.example.four_pic.models.QuestionData
 import com.example.four_pic.utils.*
 
-class MainActivity : AppCompatActivity() {
+class ResumeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var questionsList: ArrayList<QuestionData>
     private lateinit var imagesList: ArrayList<ImageView>
@@ -44,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.btnBack.setOnClickListener {
             val intent = Intent(this, MenuActivity::class.java)
+            onStop()
             startActivity(intent)
             finish()
         }
@@ -51,13 +43,13 @@ class MainActivity : AppCompatActivity() {
         userName = findViewById(R.id.userNameID)
         userName.text=userNAME.toString()
         getAllQuestions()
-        gameManager = GameManager(questionsList, 0, 0)
+        gameManager = GameManager(questionsList, shared.getCoin(), shared.getLevel())
         loadViews()
         loadDataToView()
         ////////////////////////////////////////////////////////////////////
         binding.submit.setOnClickListener {
             if (gameManager.hasNextQuestion()) {
-                if (check_()) {
+                if (check1()) {
                     Toast.makeText(this, "Correct!", Toast.LENGTH_LONG).show()
                     Thread.sleep(500)
                     gameManager.coins += 10
@@ -65,9 +57,9 @@ class MainActivity : AppCompatActivity() {
 
                     gameManager.level++
 
-                    var level_ = gameManager.level
+                    var level1 = gameManager.level
 
-                    binding.level.text = (++level_).toString()
+                    binding.level.text = (++level1).toString()
                     getAllQuestions()
                     loadDataToView()
                     wordCheck = ""
@@ -107,7 +99,7 @@ class MainActivity : AppCompatActivity() {
                 gameManager.coins-=5
                 binding.coins.text = gameManager.coins.toString()
             }else{
-                Toast.makeText(this@MainActivity, "Tangalaringiz miqdori yetmaydi", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ResumeActivity, "Tangalaringiz miqdori yetmaydi", Toast.LENGTH_SHORT).show()
             }
 //               wordList[wordList.size-2].text = gameManager.getWord()[wordList.size-2].toString()
 //            for (i in 0 until lettersList.size){
@@ -126,7 +118,7 @@ class MainActivity : AppCompatActivity() {
     private fun startTimer() {
         object : CountDownTimer(3000, 1000) {
             override fun onFinish() {
-                startActivity(Intent(this@MainActivity, MenuActivity::class.java))
+                startActivity(Intent(this@ResumeActivity, MenuActivity::class.java))
             }
             override fun onTick(millisUntilFinished: Long) {
             }
@@ -134,7 +126,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun custom() {
-        val alertDialog:AlertDialog.Builder = AlertDialog.Builder(this@MainActivity,
+        val alertDialog:AlertDialog.Builder = AlertDialog.Builder(this@ResumeActivity,
             R.style.fullScreenAlert)
         val view:View = layoutInflater.inflate(R.layout.dialog_win, null)
         alertDialog.setView(view)
@@ -230,7 +222,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun check_(): Boolean {
+    private fun check1(): Boolean {
         for (i in 0 until (gameManager.getWordSize())){
             wordCheck+=wordList[i].text.toString()
         }

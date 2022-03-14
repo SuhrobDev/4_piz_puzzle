@@ -16,6 +16,9 @@
             android:name=".NewGameActivity"
             android:exported="false" />
         <activity
+            android:name=".ResumeActivity"
+            android:exported="false" />
+        <activity
             android:name=".MenuActivity"
             android:exported="false" />
         <activity

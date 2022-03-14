@@ -45,6 +45,22 @@ class SharedPreferencesHelper(var context: Context) {
         updateResourcesLegacy(context, lang)
     }
 
+    fun setLevel(level:Int){
+        editor = preferences.edit()
+        editor.putInt("LEVEL",level)
+        editor.apply()
+    }
+
+    fun getLevel() = preferences.getInt("LEVEL",0)
+
+    fun setCoin(coin:Int){
+        editor = preferences.edit()
+        editor.putInt("COIN",coin)
+        editor.apply()
+    }
+
+    fun getCoin() = preferences.getInt("COIN",0)
+
     private fun updateResources(context: Context, language: String): Context? {
         val locale = Locale(language)
         Locale.setDefault(locale)

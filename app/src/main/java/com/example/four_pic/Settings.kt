@@ -1,5 +1,6 @@
 package com.example.four_pic
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -12,15 +13,32 @@ import com.example.four_pic.databinding.ActivitySettingBinding
 import com.example.four_pic.utils.SharedPreferencesHelper
 
 class Settings : AppCompatActivity() {
-var binding:ActivitySettingBinding = ActivitySettingBinding.inflate(layoutInflater)
+private lateinit var binding:ActivitySettingBinding
+
     private val shared by lazy {
         SharedPreferencesHelper(this)
     }
+    @SuppressLint("CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
+        binding = ActivitySettingBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        setContentView(R.layout.activity_setting)
         val actionBar : ActionBar? = supportActionBar
         actionBar?.hide()
+
+        val switchCompat = findViewById<SwitchCompat>(R.id.theme_mode)
+
+        switchCompat.isChecked = shared.getNightMode()
+        switchCompat.setOnClickListener {
+            shared.setNightMode(switchCompat.isChecked)
+            if (switchCompat.isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
+
         findViewById<AppCompatButton>(R.id.uzb).setOnClickListener {
             shared.setLanguage("uz", this)
             startActivity(Intent(this,MainActivity::class.java))
@@ -50,7 +68,7 @@ var binding:ActivitySettingBinding = ActivitySettingBinding.inflate(layoutInflat
             }
             finish()
         }
-        var music: MediaPlayer = MediaPlayer.create(this@Settings, R.raw.darkside1)
+        val music: MediaPlayer = MediaPlayer.create(this@Settings, R.raw.darkside1)
         binding.volume.setOnClickListener {
             if (binding.volume.isChecked){
                 music.start()
