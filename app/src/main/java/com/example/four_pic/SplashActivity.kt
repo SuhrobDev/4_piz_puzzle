@@ -63,8 +63,8 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun count() {
-        progressStatus+=10
-        Thread.sleep(1200)
+        progressStatus+=1
+        Thread.sleep(100)
     }
 
 //    private fun startTimer() {

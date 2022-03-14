@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                 if (check_()) {
                     Toast.makeText(this, "Correct!", Toast.LENGTH_LONG).show()
                     Thread.sleep(500)
-                    gameManager.coins += 15
+                    gameManager.coins += 10
                     binding.coins.text = gameManager.coins.toString()
 
                     gameManager.level++
@@ -88,19 +88,25 @@ class MainActivity : AppCompatActivity() {
             }
         }
         binding.btnHelp.setOnClickListener {
-            var n=0
-            for (i in 0 until wordList.size) {
-                n=i
-                if (wordList[i].text.isEmpty()) {
-                    wordList[n].text = gameManager.getWord()[n].toString()
-                    break
+            if (gameManager.coins>=5) {
+                var n = 0
+                for (i in 0 until wordList.size) {
+                    n = i
+                    if (wordList[i].text.isEmpty()) {
+                        wordList[n].text = gameManager.getWord()[n].toString()
+                        break
+                    }
                 }
-            }
-            for (i in 0 until lettersList.size) {
-                if (lettersList[i].text.toString()==wordList[n].text.toString()) {
-                    lettersList[i].invisible()
-                    break
+                for (i in 0 until lettersList.size) {
+                    if (lettersList[i].text.toString() == wordList[n].text.toString()) {
+                        lettersList[i].invisible()
+                        break
+                    }
                 }
+                gameManager.coins-=5
+                binding.coins.text = gameManager.coins.toString()
+            }else{
+                Toast.makeText(this@MainActivity, "Tangalaringiz miqdori yetmaydi", Toast.LENGTH_SHORT).show()
             }
 //               wordList[wordList.size-2].text = gameManager.getWord()[wordList.size-2].toString()
 //            for (i in 0 until lettersList.size){
