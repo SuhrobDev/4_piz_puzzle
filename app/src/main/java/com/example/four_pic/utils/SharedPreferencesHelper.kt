@@ -173,4 +173,5 @@ class SharedPreferencesHelper(var context: Context) {
         }
         return visibilityLetter
     }
+    // Commit
 }
