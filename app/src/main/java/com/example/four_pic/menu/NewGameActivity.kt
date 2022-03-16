@@ -1,4 +1,4 @@
-package com.example.four_pic
+package com.example.four_pic.menu
 
 import android.annotation.SuppressLint
 import android.app.Dialog

@@ -10,22 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
-            android:name=".SettingActivity"
+            android:name=".menu.SettingActivity"
             android:exported="false" />
         <activity
-            android:name=".NewGameActivity"
+            android:name=".menu.NewGameActivity"
             android:exported="false" />
         <activity
-            android:name=".ResumeActivity"
+            android:name=".menu.ResumeActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuActivity"
+            android:name=".menu.MenuActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".menu.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".CreateUserName"
+            android:name=".menu.CreateUserName"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"

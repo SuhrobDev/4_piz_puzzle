@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:background="@drawable/splash_bg_menu"
-    tools:context=".MenuActivity">
+    tools:context=".menu.MenuActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"

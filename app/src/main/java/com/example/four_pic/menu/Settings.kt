@@ -1,4 +1,4 @@
-package com.example.four_pic
+package com.example.four_pic.menu
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.SwitchCompat
+import com.example.four_pic.R
 import com.example.four_pic.databinding.ActivitySettingBinding
 import com.example.four_pic.utils.SharedPreferencesHelper
 
@@ -41,19 +42,19 @@ private lateinit var binding:ActivitySettingBinding
 
         findViewById<AppCompatButton>(R.id.uzb).setOnClickListener {
             shared.setLanguage("uz", this)
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
 
         findViewById<AppCompatButton>(R.id.eng).setOnClickListener {
             shared.setLanguage("en", this)
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
 
         findViewById<AppCompatButton>(R.id.ru).setOnClickListener {
             shared.setLanguage("ru", this)
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
         // Night Mode or Light Mode

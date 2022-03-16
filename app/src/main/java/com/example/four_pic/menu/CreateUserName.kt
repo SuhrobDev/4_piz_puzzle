@@ -1,13 +1,13 @@
-package com.example.four_pic
+package com.example.four_pic.menu
 
 import android.content.Intent
-import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import com.example.four_pic.R
 import com.example.four_pic.utils.SharedPreferencesHelper
 
 
@@ -48,12 +48,12 @@ class CreateUserName : AppCompatActivity() {
                 startActivity(intent)
             } else {
                 Toast.makeText(this ,"Username is not valid!", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this@CreateUserName,CreateUserName::class.java)
+                val intent = Intent(this@CreateUserName, CreateUserName::class.java)
                 startActivity(intent)
             }
         }else {
             Toast.makeText(this , "create a username!" , Toast.LENGTH_SHORT).show()
-            val intent = Intent(this@CreateUserName,CreateUserName::class.java)
+            val intent = Intent(this@CreateUserName, CreateUserName::class.java)
             startActivity(intent)
         }
     }

@@ -1,4 +1,4 @@
-package com.example.four_pic
+package com.example.four_pic.menu
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import com.example.four_pic.R
 import com.example.four_pic.databinding.ActivityMainBinding
 import com.example.four_pic.manager.GameManager
 import com.example.four_pic.models.QuestionData
@@ -144,7 +145,8 @@ class ResumeActivity : AppCompatActivity() {
 
     private fun custom() {
         val alertDialog:AlertDialog.Builder = AlertDialog.Builder(this@ResumeActivity,
-            R.style.fullScreenAlert)
+            R.style.fullScreenAlert
+        )
         val view:View = layoutInflater.inflate(R.layout.dialog_win, null)
         alertDialog.setView(view)
         val dialog = alertDialog.create()

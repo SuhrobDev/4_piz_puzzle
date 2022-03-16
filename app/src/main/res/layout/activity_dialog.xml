@@ -9,7 +9,7 @@
     android:backgroundTint="#fff"
     android:background="@drawable/rounded"
     android:elevation="6dp"
-    tools:context=".MenuActivity">
+    tools:context=".menu.MenuActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

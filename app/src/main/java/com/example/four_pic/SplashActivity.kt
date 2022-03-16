@@ -3,12 +3,11 @@ package com.example.four_pic
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import com.example.four_pic.utils.SharedPreferencesHelper
+import com.example.four_pic.menu.MenuActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
@@ -47,7 +46,7 @@ class SplashActivity : AppCompatActivity() {
                 }
                 if (allCheck()){
                     finish()
-                    val intent = Intent(this,MenuActivity::class.java)
+                    val intent = Intent(this, MenuActivity::class.java)
                     startActivity(intent)
                 }
             }

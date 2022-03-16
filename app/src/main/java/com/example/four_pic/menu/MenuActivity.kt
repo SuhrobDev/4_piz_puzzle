@@ -1,9 +1,10 @@
-package com.example.four_pic
+package com.example.four_pic.menu
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
+import com.example.four_pic.R
 import com.example.four_pic.manager.GameManager
 import com.example.four_pic.models.QuestionData
 import com.example.four_pic.utils.SharedPreferencesHelper
