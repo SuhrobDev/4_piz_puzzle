@@ -10,6 +10,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import com.example.four_pic.databinding.ActivityMainBinding
 import com.example.four_pic.manager.GameManager
@@ -110,6 +112,21 @@ class ResumeActivity : AppCompatActivity() {
         }
     }
     override fun onStop() {
+        val wordTexts = ArrayList<String>()
+        for (i in 0 until wordList.size) {
+            val d = (wordList[i] as AppCompatButton).text.toString()
+            wordTexts.add(d)
+        }
+        val letterVisibility = ArrayList<Int>()
+        for (i in 0 until lettersList.size){
+            if (lettersList[i].isVisible){
+                letterVisibility.add(1)
+            }else if (lettersList[i].isInvisible){
+                letterVisibility.add(-1)
+            }
+        }
+        shared.setVisibilityLetter(letterVisibility)
+        shared.setAllTexts(wordTexts)
         shared.setLevel(gameManager.level)
         shared.setCoin(gameManager.coins)
         super.onStop()

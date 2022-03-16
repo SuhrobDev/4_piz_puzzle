@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.os.Build
-import android.widget.EditText
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -19,6 +18,9 @@ class SharedPreferencesHelper(var context: Context) {
         preferences = context.getSharedPreferences("APP_PREFS_NAME", MODE_PRIVATE)
     }
 
+    var t = 0
+    var v = 0
+    
     // Set Night or Light Mode
     fun setNightMode(isNightMode: Boolean) {
         editor = preferences.edit()
@@ -136,4 +138,39 @@ class SharedPreferencesHelper(var context: Context) {
     }
 
     fun getPassword() = preferences.getString("PASSWORD","")
+
+    fun setAllTexts(wordText: ArrayList<String>) {
+        editor = preferences.edit()
+        for(i in 0 until wordText.size){
+            ++t
+            editor.putString("WORDTEXT_${i}", wordText.toString())
+        }
+        editor.apply()
+    }
+
+    fun getAllTexts(): ArrayList<String> {
+        val wordText = ArrayList<String>()
+        for (i in 0 until t){
+            wordText.add(preferences.getString("WORDTEXT_${i}","").toString())
+        }
+        t = 0
+        return wordText
+    }
+    
+    fun setVisibilityLetter(visibility: ArrayList<Int>){
+        editor = preferences.edit()
+        for (i in 0 until visibility.size){
+            ++v
+            editor.putInt("VISIBILITY_${i}", visibility[i].toInt())
+        }
+        editor.apply()
+    }
+    
+    fun getVisibilityLetter(): ArrayList<Int>{
+        val visibilityLetter = ArrayList<Int>()
+        for (i in 0 until v){
+            visibilityLetter.add(preferences.getInt("VISIBILITY_${i}", 1).toInt())
+        }
+        return visibilityLetter
+    }
 }

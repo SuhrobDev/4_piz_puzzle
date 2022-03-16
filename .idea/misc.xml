@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/acer/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/drawable/image_style.xml" value="0.1435" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/layout/activity_new_game.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/layout/splash_activity.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/suhro/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.135" />
         <entry key="..\:/Users/suhro/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/drawable/ic_launcher_background.xml" value="0.135" />
