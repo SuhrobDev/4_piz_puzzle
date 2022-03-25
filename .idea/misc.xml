@@ -3,6 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/SWIFT 3/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/drawable/actionbar_background.xml" value="0.162" />
+        <entry key="..\:/Users/SWIFT 3/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/drawable/rounded.xml" value="0.162" />
+        <entry key="..\:/Users/SWIFT 3/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/drawable/rounded_button.xml" value="0.162" />
+        <entry key="..\:/Users/SWIFT 3/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/drawable/rounded_white.xml" value="0.162" />
+        <entry key="..\:/Users/SWIFT 3/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/drawable/win_ok_btn_dialog.xml" value="0.1" />
+        <entry key="..\:/Users/SWIFT 3/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/layout/activity_dialog.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/SWIFT 3/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/SWIFT 3/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/layout/activity_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/SWIFT 3/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/layout/activity_new_game.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/SWIFT 3/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/layout/activity_setting.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/SWIFT 3/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.162" />
+        <entry key="..\:/Users/SWIFT 3/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.162" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/drawable/image_style.xml" value="0.1435" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/4_piz_puzzle/app/src/main/res/layout/activity_new_game.xml" value="0.25416666666666665" />

@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                 }
             }else{
-                custom()
+//                custom()
                 startTimer()
             }
         }
@@ -117,9 +117,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startTimer() {
-        object : CountDownTimer(3000, 1000) {
+        object : CountDownTimer(3000, 2000) {
             override fun onFinish() {
-                startActivity(Intent(this@MainActivity, MenuActivity::class.java))
+//                startActivity(Intent(this@MainActivity, MenuActivity::class.java))
             }
             override fun onTick(millisUntilFinished: Long) {
             }

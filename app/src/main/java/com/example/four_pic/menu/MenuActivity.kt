@@ -38,7 +38,7 @@ class MenuActivity : AppCompatActivity() {
         btnSettings.setOnClickListener {
             val intent = Intent(this, SettingActivity::class.java)
             startActivity(intent)
-            finish()
+//            finish()
         }
         val resumeGame: AppCompatButton = findViewById(R.id.btn_resume)
         resumeGame.setOnClickListener {

@@ -42,7 +42,7 @@ class CreateUserName : AppCompatActivity() {
         val userName : EditText = findViewById(R.id.userName)
         val name:String = userName.text.toString()
         if (name.trim().isNotEmpty()){
-            if (name.trim().length in 3..7) {
+            if (name.trim().length in 3..12) {
                 shared.setUserName(name)
                 val intent = Intent(this , MainActivity::class.java)
                 startActivity(intent)

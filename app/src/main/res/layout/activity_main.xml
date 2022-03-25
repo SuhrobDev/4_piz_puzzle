@@ -130,29 +130,46 @@
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:text="@string/a"
-            android:textSize="18sp" />
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:background="@drawable/rounded_white" />
 
         <Button
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:background="@drawable/rounded_white"
+            android:layout_width="55dp"
+            android:layout_height="55dp" />
+
+        <Button
+            android:background="@drawable/rounded_white"
+            android:textColor="@color/black"
+            android:textSize="24sp"
             android:layout_width="55dp"
             android:layout_height="55dp" />
 
         <Button
             android:layout_width="55dp"
-            android:layout_height="55dp" />
+            android:textSize="24sp"
+            android:layout_height="55dp"
+            android:textColor="@color/black"
+            android:background="@drawable/rounded_white"
+            android:visibility="gone" />
 
         <Button
             android:layout_width="55dp"
+            android:textSize="24sp"
+            android:background="@drawable/rounded_white"
+            android:textColor="@color/black"
             android:layout_height="55dp"
             android:visibility="gone" />
 
         <Button
             android:layout_width="55dp"
+            android:textSize="24sp"
+            android:textColor="@color/black"
             android:layout_height="55dp"
-            android:visibility="gone" />
-
-        <Button
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:background="@drawable/rounded_white"
             android:visibility="gone" />
     </LinearLayout>
 

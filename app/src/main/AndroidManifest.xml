@@ -11,7 +11,9 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
             android:name=".menu.SettingActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".menu.MenuActivity"
+            />
         <activity
             android:name=".menu.NewGameActivity"
             android:exported="false" />
