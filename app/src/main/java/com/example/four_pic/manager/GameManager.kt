@@ -18,7 +18,8 @@ class GameManager(
     fun getLettersSize() = question().letters.length
     fun questionsSize() = questionsList.size
     fun check(word: String):Boolean{
-
+//Jamshid Nuriddinov
+//
         return getWord().trim().lowercase() == word.lowercase()
     }
     fun hasNextQuestion(): Boolean{

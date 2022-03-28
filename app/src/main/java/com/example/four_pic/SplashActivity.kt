@@ -28,7 +28,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.splash_activity)
 
         //startTimer()
-
+//dfsadfsadfasdf
         progressText = findViewById(R.id.progressText)
         progressBar = findViewById(R.id.progressBar)
         progress()
