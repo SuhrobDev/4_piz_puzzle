@@ -30,11 +30,13 @@ class ContinueActivity : AppCompatActivity() {
     private val shared by lazy {
         SharedPreferencesHelper(this)
     }
-
+    var wordSize = 0
+    var letterSize =0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityContinueBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         binding.btnBack.setOnClickListener {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
@@ -43,13 +45,37 @@ class ContinueActivity : AppCompatActivity() {
         val userNAME = shared.getUserName()
         userName = findViewById(R.id.userNameID)
         userName.text=userNAME.toString()
-        binding.coins.text = shared.getCoin().toString()
-        binding.level.text = (shared.getLevel().toString().toInt()+1).toString() + "/8"
-
         getAllQuestions()
-        gameManager = GameManager(questionsList, shared.getLevel(), shared.getCoin())
+        gameManager = GameManager(questionsList, 0, 0)
         loadViews()
+
         loadDataToView()
+        if (wordSize==letterSize){
+            Toast.makeText(this, "true", Toast.LENGTH_SHORT).show()
+            if (gameManager.hasNextQuestion()) {
+                if (check_()) {
+                    Toast.makeText(this, "Correct!", Toast.LENGTH_LONG).show()
+                    Thread.sleep(500)
+                    gameManager.coins += 10
+                    binding.coins.text = gameManager.coins.toString()
+
+                    gameManager.level++
+
+                    var level_ = gameManager.level
+                    shared.setCoin(gameManager.coins)
+                    binding.level.text = (++level_).toString() + "/8"
+                    getAllQuestions()
+                    shared.setLevel(gameManager.level)
+                    loadDataToView()
+                    wordCheck = ""
+                } else {
+                    Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
+                }
+            }else{
+//                custom()
+                startTimer()
+            }
+        }
         ////////////////////////////////////////////////////////////////////
         binding.submit.setOnClickListener {
             if (gameManager.hasNextQuestion()) {
@@ -62,9 +88,10 @@ class ContinueActivity : AppCompatActivity() {
                     gameManager.level++
 
                     var level_ = gameManager.level
-
-                    binding.level.text = (++level_).toString()
+                    shared.setCoin(gameManager.coins)
+                    binding.level.text = (++level_).toString() + "/8"
                     getAllQuestions()
+                    shared.setLevel(gameManager.level)
                     loadDataToView()
                     wordCheck = ""
                 } else {

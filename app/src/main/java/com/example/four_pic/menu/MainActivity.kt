@@ -27,6 +27,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var gameManager: GameManager
     private lateinit var userName : TextView
     private var wordCheck = ""
+    var wordSize = 0
+    var letterSize =0
     private val shared by lazy {
         SharedPreferencesHelper(this)
     }
@@ -35,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         binding.btnBack.setOnClickListener {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
@@ -48,6 +51,32 @@ class MainActivity : AppCompatActivity() {
         loadViews()
 
         loadDataToView()
+        if (wordSize==letterSize){
+            Toast.makeText(this, "true", Toast.LENGTH_SHORT).show()
+            if (gameManager.hasNextQuestion()) {
+                if (check_()) {
+                    Toast.makeText(this, "Correct!", Toast.LENGTH_LONG).show()
+                    Thread.sleep(500)
+                    gameManager.coins += 10
+                    binding.coins.text = gameManager.coins.toString()
+
+                    gameManager.level++
+
+                    var level_ = gameManager.level
+                    shared.setCoin(gameManager.coins)
+                    binding.level.text = (++level_).toString() + "/8"
+                    getAllQuestions()
+                    shared.setLevel(gameManager.level)
+                    loadDataToView()
+                    wordCheck = ""
+                } else {
+                    Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
+                }
+            }else{
+//                custom()
+                startTimer()
+            }
+        }
         ////////////////////////////////////////////////////////////////////
         binding.submit.setOnClickListener {
             if (gameManager.hasNextQuestion()) {
@@ -247,23 +276,32 @@ class MainActivity : AppCompatActivity() {
         wordList = ArrayList()
         for (i in 0 until binding.wordLayout.childCount) {
             wordList.add(binding.wordLayout.getChildAt(i) as Button)
+            wordSize = wordList.size
+            Toast.makeText(this, "wordniki $wordSize", Toast.LENGTH_SHORT).show()
             wordList[i].setOnClickListener {
                 wordBtnClick(it as Button)
+                letterSize--
+                Toast.makeText(this, "letterlini $letterSize", Toast.LENGTH_SHORT).show()
             }
         }
+
         ///////////
         lettersList = ArrayList()
         for (i in 0 until binding.letterLayout.childCount) {
             lettersList.add(binding.letterLayout.getChildAt(i) as Button)
             lettersList[i].setOnClickListener {
                 letterBtnClick(it as Button)
+                letterSize++
+                Toast.makeText(this, "$letterSize letterniki", Toast.LENGTH_SHORT).show()
             }
         }
+
     }
 
     private fun letterBtnClick(button: Button) {
         if (button.isVisible && wordList[gameManager.getWordSize()-1].text.isEmpty()) {
             button.invisible()
+
             val word = button.text.toString()
             for (i in 0 until wordList.size) {
                 if (wordList[i].text.isEmpty()) {
