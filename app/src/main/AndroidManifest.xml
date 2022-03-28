@@ -10,10 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
+            android:name=".menu.ContinueActivity"
+            android:exported="false" />
+        <activity
             android:name=".menu.SettingActivity"
             android:exported="false"
-            android:parentActivityName=".menu.MenuActivity"
-            />
+            android:parentActivityName=".menu.MenuActivity" />
         <activity
             android:name=".menu.NewGameActivity"
             android:exported="false" />

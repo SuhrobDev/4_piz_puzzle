@@ -44,7 +44,7 @@ class ContinueActivity : AppCompatActivity() {
         userName = findViewById(R.id.userNameID)
         userName.text=userNAME.toString()
         binding.coins.text = shared.getCoin().toString()
-        binding.level.text = shared.getLevel().toString()+1 + " / 8"
+        binding.level.text = (shared.getLevel().toString().toInt()+1).toString() + "/8"
 
         getAllQuestions()
         gameManager = GameManager(questionsList, shared.getLevel(), shared.getCoin())

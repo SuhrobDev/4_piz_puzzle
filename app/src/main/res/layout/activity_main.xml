@@ -13,9 +13,10 @@
         android:layout_height="?android:actionBarSize"
         android:background="@drawable/actionbar_background">
 
-        <ImageButton
+        <ImageView
+            android:layout_marginStart="6dp"
             android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
+            android:layout_width="44dp"
             android:layout_height="match_parent"
             android:src="@drawable/ic_keyboard_backspace_black_24dp" />
 
@@ -71,56 +72,45 @@
 
         <ImageView
             android:id="@+id/img1"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_width="170dp"
+            android:layout_margin="6dp"
+            android:layout_height="170dp"
             android:background="@drawable/image_style"
             android:src="@drawable/img1" />
 
         <ImageView
             android:id="@+id/img2"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="6dp"
             android:background="@drawable/image_style"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
             android:layout_toEndOf="@id/img1"
             android:src="@drawable/img1" />
 
         <ImageView
             android:id="@+id/img3"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
             android:background="@drawable/image_style"
             android:layout_below="@id/img1"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_margin="6dp"
             android:src="@drawable/img1"
             />
 
         <ImageView
             android:id="@+id/img4"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
             android:background="@drawable/image_style"
             android:layout_below="@id/img2"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_margin="6dp"
             android:layout_toEndOf="@id/img3"
             android:src="@drawable/img1"
             />
     </RelativeLayout>
 
     <LinearLayout
+        android:layout_marginTop="6dp"
         android:id="@+id/wordLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

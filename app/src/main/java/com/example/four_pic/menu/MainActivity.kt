@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
                     var level_ = gameManager.level
                     shared.setCoin(gameManager.coins)
-                    binding.level.text = (++level_).toString() + " / 8"
+                    binding.level.text = (++level_).toString() + "/8"
                     getAllQuestions()
                     shared.setLevel(gameManager.level)
                     loadDataToView()
