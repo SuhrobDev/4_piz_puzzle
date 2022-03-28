@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
         getAllQuestions()
         gameManager = GameManager(questionsList, 0, 0)
         loadViews()
+
         loadDataToView()
         ////////////////////////////////////////////////////////////////////
         binding.submit.setOnClickListener {
@@ -59,9 +60,10 @@ class MainActivity : AppCompatActivity() {
                     gameManager.level++
 
                     var level_ = gameManager.level
-
-                    binding.level.text = (++level_).toString()
+                    shared.setCoin(gameManager.coins)
+                    binding.level.text = (++level_).toString() + " / 8"
                     getAllQuestions()
+                    shared.setLevel(gameManager.level)
                     loadDataToView()
                     wordCheck = ""
                 } else {

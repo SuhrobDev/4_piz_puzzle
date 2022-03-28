@@ -47,8 +47,7 @@ class MenuActivity : AppCompatActivity() {
                 if (userName.isEmpty()){
                     Toast.makeText(this, "CREATE NEW GAME", Toast.LENGTH_SHORT).show()
                 }else{
-//                    gameManager = GameManager(questionsList, shared.getLevel(), shared.getCoin())
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, ContinueActivity::class.java)
                     startActivity(intent)
                 }
             }else{
